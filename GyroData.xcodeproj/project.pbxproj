@@ -110,10 +110,10 @@
 			children = (
 				63F01BB428D44FC400C53A39 /* AppDelegate.swift */,
 				63F01BB628D44FC400C53A39 /* SceneDelegate.swift */,
+				3C95497C298A75A900704A96 /* Extensions */,
 				3C954982298A8F7D00704A96 /* Model */,
 				3C95497F298A75E100704A96 /* View */,
 				3C95498D298AAFDF00704A96 /* Controller */,
-				3C95497C298A75A900704A96 /* Extensions */,
 				3C954979298A75A200704A96 /* Font */,
 				63F01BBD28D44FC500C53A39 /* Assets.xcassets */,
 				63F01BBF28D44FC500C53A39 /* LaunchScreen.storyboard */,
