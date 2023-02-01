@@ -40,6 +40,7 @@ class MotionDataTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configureUI()
     }
     
     required init?(coder: NSCoder) {
@@ -53,11 +54,11 @@ class MotionDataTableViewCell: UITableViewCell {
     }
 
     private func configureUI() {
-        configureConstraints()
         stackView.addArrangedSubview(timeLabel)
         stackView.addArrangedSubview(motionTypeLabel)
         addSubview(stackView)
         addSubview(motionDataLabel)
+        configureConstraints()
     }
     
     private func configureConstraints() {
