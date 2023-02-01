@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MotionDataTableViewCell: UITableViewCell {
+final class MotionDataTableViewCell: UITableViewCell {
     
     private enum Constant {
         static let timeLabelWidth: CGFloat = 70.4
@@ -28,6 +28,7 @@ class MotionDataTableViewCell: UITableViewCell {
         stackView.axis = .vertical
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         return stackView
     }()
     
@@ -36,6 +37,7 @@ class MotionDataTableViewCell: UITableViewCell {
         stackView.distribution = .fill
         stackView.axis = .horizontal
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         return stackView
     }()
     
@@ -43,6 +45,7 @@ class MotionDataTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont().customBodyFont
         label.translatesAutoresizingMaskIntoConstraints = false
+        
         return label
     }()
     
@@ -50,6 +53,7 @@ class MotionDataTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont().customTitleFont
         label.translatesAutoresizingMaskIntoConstraints = false
+        
         return label
     }()
     
@@ -58,6 +62,7 @@ class MotionDataTableViewCell: UITableViewCell {
         label.font = UIFont().customLargeTitleFont
         label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
+        
         return label
     }()
     
