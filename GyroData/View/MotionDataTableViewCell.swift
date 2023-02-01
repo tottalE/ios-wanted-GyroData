@@ -9,6 +9,8 @@ import UIKit
 
 class MotionDataTableViewCell: UITableViewCell {
     
+    static let cellIdentifier = String.init(describing: MotionDataTableViewCell.self)
+    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.distribution = .fillEqually
