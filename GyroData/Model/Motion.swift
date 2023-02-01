@@ -7,6 +7,7 @@
 import Foundation
 
 struct Motion {
+    
     let x: CGFloat
     let y: CGFloat
     let z: CGFloat

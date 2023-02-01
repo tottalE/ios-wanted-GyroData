@@ -6,6 +6,7 @@
 //
 
 enum MotionType: String {
+    
     case gyro = "Gyro"
     case acc = "Accelerometer"
 }

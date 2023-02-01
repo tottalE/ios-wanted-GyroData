@@ -8,6 +8,7 @@
 import Foundation
 
 struct MotionData: Identifiable {
+    
     let id: UUID
     let type: MotionType
     let motions: [Motion]
