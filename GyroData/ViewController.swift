@@ -14,9 +14,22 @@ class ViewController: UIViewController {
         static let navigationRightButtonTitle = "측정"
     }
     
+    enum Section {
+        case main
+    }
+    
+    var motionDataList: [MotionData] = [MotionData(id: UUID(), type: .gyro, motions: [Motion(x: 1, y: 1, z: 1)], date: Date(), time: 10)] {
+        didSet {
+            applySnapShot()
+        }
+    }
+    var dataSource: UITableViewDiffableDataSource<Section, MotionData>?
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.rowHeight = 100
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        
         return tableView
     }()
 
@@ -24,6 +37,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureUI()
+        configureTableView()
     }
     
     private func configureUI() {
@@ -63,5 +77,26 @@ class ViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    private func configureTableView() {
+        dataSource = UITableViewDiffableDataSource<Section, MotionData>(
+            tableView: tableView,
+            cellProvider: { tableView, _, motionData  in
+            let cell = tableView.dequeueReusableCell(withIdentifier: MotionDataTableViewCell.cellIdentifier) as? MotionDataTableViewCell
+            cell?.motionData = motionData
+            return cell
+        })
+        tableView.dataSource = dataSource
+        tableView.register(MotionDataTableViewCell.self, forCellReuseIdentifier: MotionDataTableViewCell.cellIdentifier)
+    }
+}
+
+extension ViewController {
+    private func applySnapShot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MotionData>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(motionDataList)
+        dataSource?.apply(snapshot, animatingDifferences: true)
     }
 }
